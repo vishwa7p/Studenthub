@@ -1,7 +1,7 @@
 # Studenthub
 
 # Overview
-This application helps the user to know the cources provided by the training institute,in this application I have used django for the server side and HTML, CSS, Bootstrap, javascript for the client side of the application.
+This application helps the user to know the cources provided by the training institute,in this application I have used Python,django for the server side and HTML, CSS, Bootstrap, javascript for the client side of the application.
 
 Please follow the setup instrutions as follow in order to view the complete app we need to setup so be carefull otherwise there could be problems.
 
