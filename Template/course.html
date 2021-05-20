@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="portfolio" class="portfolio">
+    <div class="container">
+
+      <div class="section-title" style="margin-top:5%;">
+        <h2 >Topics</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <ul id="portfolio-flters">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-Tense">Tense</li>
+            <li data-filter=".filter-Structures">Structures</li>
+            <li data-filter=".filter-To be verb"> To be verb</li>
+            <li data-filter=".filter-Phrases">Phrases</li>
+            <li data-filter=".filter- Phrasal verbs">Phrasal verbs</li>
+            <li data-filter=".filter-Fluency">Fluency</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row portfolio-container">
+        {% for topic in topics %}
+        <div class="col-lg-4 col-md-6 filter-app">
+          <div class="portfolio-item">
+            <a href="{{ topic.get_absolute_url }}">
+                <img src="{{ topic.img.url }}" class="img-fluid" alt="">
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </section><!-- End Our Portfolio Section -->
+{% endblock content %}

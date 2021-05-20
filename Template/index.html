@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load bootstrap4 %}
+  <section id="hero">
+    <div class="hero-container">
+      <h1>Welcome to </h1>
+      <h2>Shreeporna IAS Academy</h2>
+      <a href="{% url 'course' %}" class="btn-get-started scrollto">Get Started</a>
+    </div>
+  </section><!-- #hero -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About Us</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img src="{% static 'assts/images/coaching.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1">
+            <h3>Shreeporna IAS Academy</h3>
+            <p class="font-italic">
+              is a registered institute for traning.
+              It was established in the year 2021.
+              The institute is especially for people who don't know about the sylabus and process.
+              We have been training for last 1 year. We offer communication skills, training courses and classes for examinations. 
+              Anyone who wants to enhance the proficiency in this can join our courses.
+            </p>
+            <h3 style="margin-top:2%;">objective</h3>
+            <p>
+              We have an objective to train. 
+              Since in technical and management world English is an essential tool. For doing any course related to the above 
+              fields the knowledge of English is a must. We teach and  train background starts speaking in English
+               within 3 months having spent 90 minutes per day.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1" style="margin-top:2%;">
+            <img src="{% static 'assets/images/coching.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-1 order-lg-2">
+            <h3 style="margin-top:3%;">Achievements</h3>
+            <p class="font-italic">
+              Our students from different States are working across the country and across the globe. 
+              They are IAS, IFS, IPS, etc....
+            </p>
+            <h3>Technique</h3>
+            <p>
+              We follow universal and innovative techniques. 
+              Our techniques are simple and follow the rule that everyone thinks
+              We are confident that if an individual does practice it according to our way then he/she will be able to clear examinations.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>We give the best training and communication skills.</p>
+        </div>
+        <div class="row">
+          {% for ser in object %}
+          <div class="col-lg-4 col-md-6 icon-box">
+            <div class="icon"><i class="icofont-{{ ser.symbol|safe }}"></i></div>
+              <h4 class="title"><a href="">{{ ser.name }}</a></h4>
+              <p class="description">{{ ser.dics|safe }}</p>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Call To Action Section ======= -->
+    <section class="call-to-action">
+      <div class="container">
+
+        <div class="text-center">
+          <h3>Call To Action</h3>
+          <p>We are ready to your query please ask by clicking this button</p>
+          <a class="cta-btn" href="tel:+919752124046">Call For Query</a>
+        </div>
+
+      </div>
+    </section><!-- End Call To Action Section -->
+
+    <!-- ======= Our Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Our Portfolio</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-Group">Group</li>
+              <li data-filter=".filter-Certification">Certification</li>
+              <li data-filter=".filter-Live">Live</li>
+              <li data-filter=".filter-Speach">Speech</li>
+              <li data-filter=".filter-GD">Group Discussion</li>
+              <li data-filter=".filter-Class">Class</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container">
+          {% for photo in object %}
+          <div class="col-lg-4 col-md-6 filter-{{ photo.field }}">
+            <div class="portfolio-item">
+              <img src="{{ photo.photo.url }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h3><a href="{{ photo.photo.url }}" data-gall="portfolioGallery" class="venobox" title="App 1">{{ photo.field }}</a></h3>
+                <a href="{{ photo.photo.url }}" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="icofont-plus"></i></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section><!-- End Our Portfolio Section -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Our Testimonials</h2>
+          <p>There are some statements of our students how they have been benifited having taken our classes.</p>
+        </div>
+
+        <div class="row">
+          {% for member in object %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="{{ member.img.url }}" alt="">
+              <h4>{{ member.name }}</h4>
+              <span>{{ member.prof }}</span>
+              <p>
+               {{ member.disc }}
+              </p>
+              <div class="social">
+                <a href="{{ member.social_link_t }}"><i class="icofont-twitter"></i></a>
+                <a href="{{ member.social_link_f }}"><i class="icofont-facebook"></i></a>
+                <a href="{{ member.social_link_i }}"><i class="icofont-instagram"></i></a>
+                <a href="{{ member.social_link_l }}"><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section><!-- End Our Team Section -->
+
+    <!-- ======= Contact Us Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact Us</h2>
+          <p>We are leading brand in Lingsugur to build your Career, Personality and Communication for your great business and successful life</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-about">
+              <h2>Shreeporna</h2> 
+              <h3>IAS Academy</h3>
+              <p>A Name Builds On Trust</p>
+              <div class="social-links">
+                <a href="https://www.facebook.com/Shreepoorna.L.Kulkarni" class="facebook"><i class="icofont-facebook"></i></a>
+                <a href="https://www.instagram.com/hirenmukherjee8422/" class="instagram"><i class="icofont-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info">
+              <div>
+                <i class="icofont-google-map"></i>
+                <p>Banglore by pass road<br>Near Bosch Garage<br>Lingsugur</p>
+              </div>
+
+              <div>
+                <i class="icofont-envelope"></i>
+                <p>iasacademy@gmail.com</p>
+              </div>
+
+              <div>
+                <i class="icofont-phone"></i>
+                <p>+919876543210</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-12">
+            <form action="{% url 'contact' %}" method="post" role="form" class="php-email-form">
+              {% csrf_token %}
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Us Section -->
+
+    <!-- ======= Map Section ======= -->
+    <section class="map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15329.021268808932!2d76.51241122163377!3d16.155778630738002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc8010c4d3081cd%3A0xcffea04d327a2279!2sLingsugur%2C%20Karnataka%20584122!5e0!3m2!1sen!2sin!4v1621400367384!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>    </section><!-- End Map Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="section-title" style="margin-bottom: -15px;">
+        <p style="align-items: center;">Design And Developed By Rover
+      </div>
+    </div>
+  </footer><!-- End #footer -->
+
+{% endblock content %}
+

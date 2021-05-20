@@ -1,0 +1,22 @@
+{% load static %}
+<header id="header" class="fixed-top">
+    <div class="container">
+
+      <div class="logo float-left">
+        <img src="{% static 'assets/img/logo.png' %}">
+      </div>
+
+      <nav class="nav-menu float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'home' %}#about">About Us</a></li>
+          <li><a href="{% url 'home' %}#services">Services</a></li>
+          <li><a href="{% url 'home' %}#portfolio">Portfolio</a></li>
+          <li><a href="{% url 'home' %}#team">Testimonials</a></li>
+          <li><a href="{% url 'course' %}">Courses</a></li>
+          <li><a href="{% url 'home' %}#contact">Contact Us</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+</header><!-- End #header -->

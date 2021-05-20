@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="faq" class="faq section-bg" style="margin-top: 4%;">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>{{ object.subject }}/{{ object.topic }}</h2>
+      </div>
+
+      <ul class="faq-list">
+        <li>
+          <div id="faq1" class="collapse show" data-parent=".faq-list">
+            <p>
+              {{ object.disc | safe }}
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+{% endblock content %}
